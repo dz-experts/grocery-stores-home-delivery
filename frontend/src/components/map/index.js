@@ -1,17 +1,36 @@
 import React from 'react';
+import { Map , TileLayer , Marker , Popup } from 'react-leaflet';
+import styled from 'styled-components';
 
-const Map = () => {
-    return (
-        <MapContainer>
-            <Map></Map>
-        </MapContainer>
-    )
+class MapComponent extends React.Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            lat: 51.505,
+            lng: -0.09,
+            zoom: 13,
+        }
+    }
+    
+    
+
+    render(){
+        const position = [this.state.lat, this.state.lng]
+        return (
+            <div>
+            
+            </div>
+        )
+    }
+    
 }
 
 const MapContainer = styled.section`
     color:white
     background-color: #333;
+    height:40vh;
+    width:50vw;
 `;
 
 
-export default Map;
+export {MapComponent};

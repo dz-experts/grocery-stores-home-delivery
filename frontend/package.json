@@ -6,6 +6,7 @@
     "axios": "^0.19.2",
     "history": "^4.10.1",
     "immer": "^6.0.2",
+    "leaflet": "^1.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-leaflet": "^2.6.3",
