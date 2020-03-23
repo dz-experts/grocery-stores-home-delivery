@@ -1,7 +1,12 @@
 import React from "react";
+import { Container } from "semantic-ui-react";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <Container>
+      <div>Home</div>
+    </Container>
+  );
 };
 
 export { Home };
