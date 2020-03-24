@@ -1,0 +1,46 @@
+version: "3.7"
+
+services:
+  backend:
+    restart: always
+    build: .
+    env_file: # Pass the environment variables in the .env file to the container
+      - .env
+    ports:
+      - 5000:5000
+    volumes:
+      - ./backend:/app
+    networks:
+      - backend
+    links:
+      - postgres
+
+  # frontend:
+  #   restart: always
+  #   build: ./frontend
+  #   # env_file: # Pass the environment variables in the .env file to the container
+  #   #   - ./frontend/.env
+  #   ports:
+  #     - 3000:3000
+
+  postgres:
+    restart: always
+    image: postgres:12
+    environment:
+      # Define the postgresql USER, PASSWORD, and DB NAME here (the container will create them for the first time)
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    ports:
+      - "5555:5432"
+    networks:
+      - backend
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+
+
+volumes:
+  postgres:
+
+networks:
+  backend:
