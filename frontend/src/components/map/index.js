@@ -1,28 +1,41 @@
-import React from "react";
-import { Map, TileLayer, Marker, Popup } from "react-leaflet";
-import styled from "styled-components";
+import React from 'react';
+import { Map as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import {geoLocation} from '../../utils/geolocation';
+import styled from 'styled-components';
 
-class MapComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      lat: 51.505,
-      lng: -0.09,
-      zoom: 13
-    };
-  }
-
-  render() {
-    const position = [this.state.lat, this.state.lng];
-    return <div>Home</div>;
-  }
+const MapContainer = (props) => {
+    geoLocation()
+    return (
+        <Container>
+            <LeafletMap
+            center={[50, 10]}
+            zoom={6}
+            maxZoom={10}
+            attributionControl={true}
+            zoomControl={true}
+            doubleClickZoom={true}
+            scrollWheelZoom={true}
+            dragging={true}
+            animate={true}
+            easeLinearity={0.35}
+        >
+                <TileLayer
+                url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+                />
+                    <Marker position={[50, 10]}>
+                        <Popup>
+                            Popup for any custom information.
+                        </Popup>
+                    </Marker>
+            </LeafletMap>
+        </Container>
+    )
 }
 
-const MapContainer = styled.section`
-    color:white
-    background-color: #333;
-    height:40vh;
-    width:50vw;
-`;
+const Container = styled.div`
+    height: 400px;
+    width: 100%;
+`
 
-export { MapComponent };
+
+export {MapContainer};
