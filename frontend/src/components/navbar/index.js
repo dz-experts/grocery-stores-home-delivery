@@ -6,18 +6,16 @@ const Navbar = () => {
     return (
         <NavbarBody>
             <div className="ui container">
-            <div className="ui secondary menu">
-                
-                
-            </div>
-            </div>
+            <h2>Navbar</h2>
             
+            </div>            
         </NavbarBody>
         
     );
 }
 
 const NavbarBody = styled.section`
+    color:#fff;
     background-color: #333;
 `;
 
