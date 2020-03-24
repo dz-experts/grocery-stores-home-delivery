@@ -1,14 +1,20 @@
 import React, { lazy } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import { Container } from 'semantic-ui-react';
+import { Container } from "semantic-ui-react";
 import { withSuspense } from "./HOC";
-import { Navbar } from './components/navbar';
+import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
-
+import { i18n } from "./i18n";
 
 const Home = lazy(() =>
   import("./containers").then(({ Home }) => ({
     default: Home
+  }))
+);
+
+const AddStore = lazy(() =>
+  import("./containers").then(({ AddStore }) => ({
+    default: AddStore
   }))
 );
 
@@ -17,6 +23,7 @@ const Routes = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={withSuspense(Home)} />
+        <Route path="/stores/join" component={withSuspense(AddStore)} />
       </Switch>
     </BrowserRouter>
   );
@@ -25,13 +32,13 @@ const Routes = () => {
 const App = () => {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <Container>
         <Routes />
       </Container>
-      <Footer/>
+      <Footer />
     </>
-  )
+  );
 };
 
 export default App;
