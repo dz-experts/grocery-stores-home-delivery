@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-    <a href=""><img src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+    <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
     <a href="https://dependabot.com"><img src="https://api.dependabot.com/badges/status?host=github&repo=dz-experts/grocery-stores-home-delivery" alt="Dependabot Status"></a>
     <a href="LICENSE.md"><img src="https://badgen.net/github/license/micromatch/micromatch" /></a>
 </p>
