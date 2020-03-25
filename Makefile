@@ -10,14 +10,12 @@ fixwindows:
 test:
 	python -W ignore -m pytest -x --pdb
 
-shell:
-	docker-compose run --rm --service-ports backend bash
+run-backend:
+	docker-compose -f docker-compose.dev.yml run --rm --service-ports backend
+
+shell-backend:
+	docker-compose -f docker-compose.dev.yml run --rm --service-ports backend bash
 
 deploy:
 	docker image prune -a --force
-	docker-compose up -d --build
-
-clean:
-	docker-compose down -v
-	find . -type d -iname '__pycache__' -exec rm -rf '{}' \;
-	find . -type d -iname '.cache' -exec rm -rf '{}' \;
+	docker-compose -f docker-compose.prod.yml up -d --build
