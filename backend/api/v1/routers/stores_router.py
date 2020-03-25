@@ -1,11 +1,12 @@
 from typing import List
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
+from fastapi.responses import JSONResponse
 from sqlalchemy.orm import Session
 
 from api.utils import get_db
 from crud import store_crud
-from schemas import Store
+from schemas import Store, StoreCreate, StoreUpdate
 
 router = APIRouter()
 
@@ -25,12 +26,28 @@ async def get_store(store_id: int):
     return store_crud.get(store_id)
 
 
-# @router.put(
-#     "/{item_id}",
-#     tags=["custom"],
-#     responses={403: {"description": "Operation forbidden"}},
-# )
-# async def update_item(item_id: str):
-#     if item_id != "foo":
-#         raise HTTPException(status_code=403, detail="You can only update the item: foo")
-#     return {"item_id": item_id, "name": "The Fighters"}
+@router.post("/", response_model=Store, status_code=201)
+async def add_store(store: StoreCreate, db: Session = Depends(get_db)):
+    return store_crud.create(db, obj_in=store)
+
+
+@router.put(
+    "/{store_id}",
+    response_model=Store,
+    responses={
+        404: {
+            "model": Store,
+            "description": "Store does not exist, make sure it's not deleted",
+        }
+    },
+)
+async def update_store(
+    store_id: int, store: StoreUpdate, db: Session = Depends(get_db)
+):
+    existing_store = store_crud.get(db, store_id)
+    if not existing_store:
+        return JSONResponse(
+            status_code=404,
+            content={"message": "Store does not exist, make sure it's not deleted"},
+        )
+    return store_crud.update(db, db_obj=existing_store, obj_in=store)
