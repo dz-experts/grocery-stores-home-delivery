@@ -25,7 +25,6 @@ const Home = () => {
       <Component>
         <MapContainer position={state.position}/>
       </Component>
-      
     </div>
   );
 };
