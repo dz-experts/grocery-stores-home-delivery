@@ -1,18 +1,26 @@
-from pydantic import BaseModel
+from ._base import BaseSchema
 
 
-class Store(BaseModel):
-    id: int
+class Store(BaseSchema):
+    id: str
     name: str
     phone_numbers: str
-    is_open: bool
-    longitude: str
-    latide: str
+    longitude: str = None
+    latitude: str = None
+
+    class Config:
+        fields = {"store_id": "id"}
 
 
-class StoreCreate(Store):
-    pass
+class StoreCreate(BaseSchema):
+    name: str
+    phone_numbers: str
+    longitude: str = None
+    latitude: str = None
 
 
-class StoreUpdate(Store):
-    pass
+class StoreUpdate(BaseSchema):
+    name: str = None
+    phone_numbers: str = None
+    longitude: str = None
+    latitude: str = None
