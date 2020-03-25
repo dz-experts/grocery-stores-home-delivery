@@ -22,6 +22,8 @@ class Store(Base):
 
     description = Column(String, index=True)
 
+    verified = Column(Boolean, default=False, nullable=False)
+
     # owner_id = Column(Integer, ForeignKey("user.id"))
 
     # owner = relationship("User", back_populates="stores")
