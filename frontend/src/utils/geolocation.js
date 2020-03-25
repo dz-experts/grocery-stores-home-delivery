@@ -1,19 +1,12 @@
-export function geoLocation(){
-    //check if navigator supports geolocation
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(position => {
-            console.log(position.coords.latitude)
-            console.log(position.coords.longitude)
-        })
-        return {
-            navigator : navigator,
-
-        }
-    }
-
-
-    return {
-        navigator : '',
-    };
+export function getGeoLocation(options) {
+    return new Promise((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject, options);
+    });
 }
+
+
+
+
+   
+
 
