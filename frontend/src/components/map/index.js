@@ -1,36 +1,33 @@
-import React from 'react';
-import { Map , TileLayer , Marker , Popup } from 'react-leaflet';
+import React  from 'react';
+import { Map as LeafletMap, TileLayer, Marker} from 'react-leaflet';
+
+
 import styled from 'styled-components';
 
-class MapComponent extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            lat: 51.505,
-            lng: -0.09,
-            zoom: 13,
-        }
-    }
-    
-    
-
-    render(){
-        const position = [this.state.lat, this.state.lng]
-        return (
-            <div>
-            
-            </div>
-        )
-    }
-    
+const MapContainer = (props) => {
+    return (
+        <LeafletMap
+            center={[5,10]}
+            zoom={6}
+            attributionControl={true}
+            zoomControl={true}
+            doubleClickZoom={true}
+            scrollWheelZoom={true}
+            dragging={true}
+            animate={true}
+            easeLinearity={0.35}
+        >
+                    <TileLayer
+                    url='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+                    />
+                    <Marker position={[50, 10]}>
+                        
+                    </Marker>
+        </LeafletMap>
+    )
 }
 
-const MapContainer = styled.section`
-    color:white
-    background-color: #333;
-    height:40vh;
-    width:50vw;
-`;
 
 
-export {MapComponent};
+
+export {MapContainer};
