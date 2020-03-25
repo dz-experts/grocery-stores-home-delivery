@@ -11,7 +11,7 @@ const Home = lazy(() =>
   import("./containers").then(({ Home }) => ({
     default: Home
   }))
-);
+)
 
 const AddStore = lazy(() =>
   import("./containers").then(({ AddStore }) => ({
@@ -27,8 +27,8 @@ const Routes = () => {
         <Route path="/stores/join" component={withSuspense(AddStore)} />
       </Switch>
     </BrowserRouter>
-  );
-};
+  )
+}
 
 const App = () => {
   return (
