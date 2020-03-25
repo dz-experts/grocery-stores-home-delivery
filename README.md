@@ -1,6 +1,6 @@
 # Mendarkom - أقضي من داركم
 
-![](https://img.shields.io/badge/code%20style-black-000000.svg)
+[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=dz-experts/grocery-stores-home-delivery)](https://dependabot.com) ![](https://img.shields.io/badge/code%20style-black-000000.svg)
 
 A website/app for showing grocery stores that offer home delivery service on a map. Specific to Algeria in light of COVID-19 outbreak. 
 
