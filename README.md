@@ -1,8 +1,18 @@
-# Mendarkom - أقضي من داركم
+<p align="center">
+    <img height="150px" width="150px" src="https://image.flaticon.com/icons/svg/662/662325.svg" />
+    <h1 align="center">Mendarkom - أقضي من داركم</h1>
+</p>
 
-[![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=dz-experts/grocery-stores-home-delivery)](https://dependabot.com) ![](https://img.shields.io/badge/code%20style-black-000000.svg)
+<p align="center">
+    <a href=""><img src="https://img.shields.io/badge/code%20style-black-000000.svg"></a>
+    <a href="https://dependabot.com"><img src="https://api.dependabot.com/badges/status?host=github&repo=dz-experts/grocery-stores-home-delivery" alt="Dependabot Status"></a>
+    <a href="LICENSE.md"><img src="https://badgen.net/github/license/micromatch/micromatch" /></a>
+</p>
 
-A website/app for showing grocery stores that offer home delivery service on a map. Specific to Algeria in light of COVID-19 outbreak. 
+<p align="center">A website/app for showing grocery stores that offer home delivery service on a map. <br> 
+  ~ Specific to Algeria in light of COVID-19 outbreak ~</p>
+
+#
 
 The codebase is split into backend and frontend folder. 
 
