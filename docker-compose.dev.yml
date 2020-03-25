@@ -1,15 +1,18 @@
 version: "3.7"
 
 services:
-  backend:
+  app:
     restart: always
-    build: .
+    build:
+      context: .
+      dockerfile: dev.Dockerfile
     env_file: # Pass the environment variables in the .env file to the container
       - .env
     ports:
       - 5000:5000
+      - 3000:3000
     volumes:
-      - ./backend:/app
+      - ./:/app
     networks:
       - backend
     links:

@@ -10,11 +10,14 @@ fixwindows:
 test:
 	python -W ignore -m pytest -x --pdb
 
-run-backend:
-	docker-compose -f docker-compose.dev.yml run --rm --service-ports backend
+dev-build:
+	docker-compose -f docker-compose.dev.yml build
 
-shell-backend:
-	docker-compose -f docker-compose.dev.yml run --rm --service-ports backend bash
+run-backend:
+	docker-compose -f docker-compose.dev.yml run --rm --service-ports app
+
+shell:
+	docker-compose -f docker-compose.dev.yml run --rm --service-ports app bash
 
 deploy:
 	docker image prune -a --force
