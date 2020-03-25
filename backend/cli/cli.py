@@ -1,17 +1,17 @@
 import typer
+import uvicorn
 
 from constans import ALEMBIC_INI_PATH
 from core import get_app_settings
 from db import engine
 from models import Base
-import subprocess
 
 config = get_app_settings()
 app = typer.Typer()
 
 
 @app.command()
-def create_db(name: str):
+def create_db():
     Base.metadata.create_all(engine)
     from alembic.config import Config
     from alembic import command
@@ -24,11 +24,17 @@ def create_db(name: str):
 
 
 @app.command()
-def start(reload: bool = True):
-    cmd = ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "5000"]
-    if reload:
-        cmd.append("--reload")
-    subprocess.run(cmd)
+def drop_db_tables():
+    db = f"{config.postgres_host}/{config.postgres_db}"
+    delete = typer.confirm(f"Are you sure you want to drop all tables ({db}) ?")
+    if delete:
+        Base.metadata.drop_all(engine)
+        typer.echo("Tables dropped.")
+
+
+@app.command()
+def start(reload: bool = True, port: int = 5000):
+    uvicorn.run("app:app", host="0.0.0.0", port=port, reload=reload)
 
 
 if __name__ == "__main__":
