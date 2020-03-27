@@ -1,17 +1,22 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { MapContainer } from "../components/map"
 import { getGeoLocation } from "../utils"
 
 const Home = () => {
-  const state = {
-    position: {},
-  }
+  const [position, usePosition] = useState({
+    latitude: 50,
+    longitude: 10,
+  })
+
   useEffect(() => {
     getGeoLocation()
       .then((pos) => {
-        state.position.latitude = pos.coords.latitude
-        state.position.longitude = pos.coords.longitude
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        usePosition({
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+        })
       })
       .catch((err) => {
         console.log(err)
@@ -20,7 +25,7 @@ const Home = () => {
   return (
     <div>
       <Component>
-        <MapContainer position={state.position} />
+        <MapContainer position={position} />
       </Component>
     </div>
   )
