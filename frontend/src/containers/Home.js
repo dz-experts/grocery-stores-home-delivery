@@ -1,28 +1,29 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { MapContainer } from "../components/map"
 import { getGeoLocation } from "../utils"
 
 const Home = () => {
-  const state = {
-    position: {
-      latitude:0,
-      longitude:0,
-    },
-  }
+  const [position, usePosition] = useState({
+    latitude: 50,
+    longitude: 10,
+  })
+
   useEffect(() => {
     getGeoLocation()
       .then((pos) => {
-        console.log(pos);
-        state.position.latitude = pos.coords.latitude; // latitude fetching
-        state.position.longitude = pos.coords.longitude; // longitude fetching
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        usePosition({
+          latitude: pos.coords.latitude,
+          longitude: pos.coords.longitude,
+        })
       })
       .catch((err) => {
         console.log(err); 
       })
   })
   return (
-    <>
+    <div className="">
       <h1>Home</h1>
       <div className="ui message">
         <i className="close icon"></i>
@@ -32,9 +33,9 @@ const Home = () => {
         <p>This is a special notification which you can dismiss.</p>
       </div>
       <Component>
-        <MapContainer position={state.position} />
+        <MapContainer position={position} />
       </Component>
-    </>
+    </div>
   )
 }
 
