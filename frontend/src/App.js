@@ -46,7 +46,7 @@ const App = () => {
 
 const MainContainer = styled.section`
   min-height: 100vh;
-  padding:100px 0px;
+  padding:120px 0px;
 `;
 
 export default App;

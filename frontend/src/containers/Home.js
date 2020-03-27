@@ -23,7 +23,7 @@ const Home = () => {
       })
   })
   return (
-    <div className="">
+    <div className="ui container">
       <h1>Home</h1>
       <div className="ui message">
         <i className="close icon"></i>
