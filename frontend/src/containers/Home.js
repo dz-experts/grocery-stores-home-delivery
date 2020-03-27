@@ -19,11 +19,19 @@ const Home = () => {
         })
       })
       .catch((err) => {
-        console.log(err)
+        console.log(err); 
       })
   })
   return (
-    <div>
+    <div className="ui container">
+      <h1>Home</h1>
+      <div className="ui message">
+        <i className="close icon"></i>
+        <div className="header">
+          Welcome back!
+        </div>
+        <p>This is a special notification which you can dismiss.</p>
+      </div>
       <Component>
         <MapContainer position={position} />
       </Component>
@@ -33,7 +41,8 @@ const Home = () => {
 
 const Component = styled.section`
   height: 400px;
-  width: 100%;
+  width: 80%;
+  margin :auto;
 `
 
 export { Home }

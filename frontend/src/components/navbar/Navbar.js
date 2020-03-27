@@ -4,15 +4,29 @@ import styled from "styled-components";
 const Navbar = () => {
   return (
     <NavbarBody>
-      <div className="ui container">
-        <div className="ui secondary menu"></div>
+      <div className="ui fixed inverted menu">
+        <div className="ui container">
+          <div className="ui secondary menu"> 
+            <div className="item">
+              <img src=""/>
+            </div>
+            <div className="right menu">
+              <a href="/" className="active ui item">
+              Home
+              </a>
+              <a href="/stores/join" className="ui item">
+                Join
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </NavbarBody>
   );
 };
 
 const NavbarBody = styled.section`
-  background-color: #333;
+    background-color: #f4f4f4;
 `;
 
 export { Navbar };
