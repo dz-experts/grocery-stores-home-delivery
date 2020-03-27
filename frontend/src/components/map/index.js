@@ -7,7 +7,7 @@ import styled from 'styled-components';
 const MapContainer = (props) => {
     return (
         <LeafletMap
-            center={[5,10]}
+            center={[props.position.latitude, props.position.longitude]}
             zoom={6}
             attributionControl={true}
             zoomControl={true}
@@ -20,8 +20,7 @@ const MapContainer = (props) => {
                     <TileLayer
                     url='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
                     />
-                    <Marker position={[50, 10]}>
-                        
+                    <Marker position={[props.position.latitude, props.position.longitude]}>
                     </Marker>
         </LeafletMap>
     )
