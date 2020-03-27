@@ -5,7 +5,7 @@ import styled from "styled-components"
 const MapContainer = ({ position }) => {
   return (
     <LeafletMap
-      center={[5, 10]}
+      center={[position.latitude, position.longitude]}
       zoom={6}
       attributionControl={true}
       zoomControl={true}
