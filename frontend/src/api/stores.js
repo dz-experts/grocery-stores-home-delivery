@@ -14,7 +14,7 @@ export const createStore = (store) => {
     return requests.post('/stores' , store);
 }
 
-export const updateStore = (store) => {
+export const updateStore = (id,store) => {
     return requests.put(`/stores/${id}`, store);
 }
 

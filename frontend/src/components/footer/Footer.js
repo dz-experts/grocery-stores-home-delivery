@@ -11,8 +11,8 @@ const Footer = () => {
         </div>
         <div className="four wide column">
           <div className="ui link list">
-            <div className="active item">Home</div>
-            <a className="item">About</a>
+            <a href="/" className="active item">Home</a>
+            <a href="/stores/join" className="item">Join</a>
           </div>
         </div>
         <div className="four wide column"></div>

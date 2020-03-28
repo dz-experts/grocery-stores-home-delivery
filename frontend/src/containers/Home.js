@@ -33,7 +33,7 @@ const Home = () => {
         <p>This is a special notification which you can dismiss.</p>
       </div>
       <Component>
-        <MapContainer position={position} />
+        <MapContainer position={position} zoom={14}/>
       </Component>
     </div>
   )

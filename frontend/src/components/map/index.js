@@ -1,12 +1,12 @@
-import React from "react"
-import { Map as LeafletMap, TileLayer, Marker } from "react-leaflet"
-import styled from "styled-components"
+import React from "react";
+import { Map as LeafletMap, TileLayer, Marker } from "react-leaflet";
 
-const MapContainer = ({ position }) => {
+
+const MapContainer = ({ position , zoom }) => {
   return (
     <LeafletMap
       center={[position.latitude, position.longitude]}
-      zoom={6}
+      zoom={zoom}
       attributionControl={true}
       zoomControl={true}
       doubleClickZoom={true}

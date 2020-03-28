@@ -8,10 +8,10 @@ const Navbar = () => {
         <div className="ui container">
           <div className="ui secondary menu"> 
             <div className="item">
-              <img src=""/>
+              <img src="" alt="logo"/>
             </div>
             <div className="right menu">
-              <a href="/" className="active ui item">
+              <a href="/" className="ui item">
               Home
               </a>
               <a href="/stores/join" className="ui item">
