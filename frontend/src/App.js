@@ -5,6 +5,7 @@ import { withSuspense } from "./HOC";
 import styled from 'styled-components';
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
+import { i18n } from "./i18n";
 
 
 const Home = lazy(() =>
