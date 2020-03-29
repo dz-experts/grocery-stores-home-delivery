@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { StoreForm } from "../components/form";
 
 const AddStore = () => {
-  const { t } = useTranslation();
+  const { t } = useTranslation('StoreForm');
   return (
     <div>
       <h2>{t("addNewStore")}</h2>
