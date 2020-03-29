@@ -1,3 +1,23 @@
 {
-    "addNewStore": "Add new store"
+    "addNewStore": "Add a new store",
+    "submit": "Submit",
+    "storeNameLabel": "Store name",
+    "phoneNumber": {
+        "label": "Store phone number",
+        "error": "Invalid phone number!"
+    },
+    "openTime": {
+        "label": "Open time",
+        "placeholder": "e.g. 09:00",
+        "error": "Invalid open Time!"
+    },
+    "closeTime": {
+        "label": "Close time",
+        "placeholder": "e.g. 17:00",
+        "error": "Invalid close Time!"
+    },
+    "note": {
+        "label": "Note",
+        "placeholder": "e.g. doesn't open on Fridays"
+    }
 }

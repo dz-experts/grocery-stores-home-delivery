@@ -4,9 +4,12 @@ import { InputField } from "./inputField/InputField"
 import { mobilePhoneValidation, timeValidation } from "../../utils"
 import { onFieldChange, onError } from "../../actions"
 import { storeReducer, initialState } from "../../reducers"
+import { useTranslation } from "react-i18next"
+import { withSuspense } from "../../HOC"
 
-const StoreForm = () => {
+const StoreForm = withSuspense(() => {
   const [state, dispatch] = React.useReducer(storeReducer, initialState)
+  const [t] = useTranslation('StoreForm')
 
   const onChange = (field, value) => {
     onFieldChange(field, value, dispatch)
@@ -14,11 +17,11 @@ const StoreForm = () => {
 
   const onSubmit = () => {
     if (!mobilePhoneValidation(state.store.phoneNumber)) {
-      onError("phoneNumber", "Invalid Phone number!", dispatch)
+      onError("phoneNumber", t("phoneNumber.error"), dispatch)
     } else if (!timeValidation(state.store.openTime)) {
-      onError("openTime", "Invalid open time!", dispatch)
+      onError("openTime", t("openTime.error"), dispatch)
     } else if (!timeValidation(state.store.closeTime)) {
-      onError("closeTime", "Invalid closeTime!", dispatch)
+      onError("closeTime", t("closeTime.error"), dispatch)
     } else {
       // TODO
     }
@@ -30,16 +33,16 @@ const StoreForm = () => {
         <InputField
           required
           name="storeName"
-          label="Store name"
-          placeholder="Store name"
+          label={t('storeNameLabel')}
+          placeholder={t('storeNameLabel')}
           onChange={onChange}
           error={state.error}
         />
         <InputField
           required
           name="phoneNumber"
-          label="Store phone number"
-          placeholder="Store phone number"
+          label={t('phoneNumber.label')}
+          placeholder={t('phoneNumber.label')}
           onChange={onChange}
           error={state.error}
         />
@@ -48,16 +51,16 @@ const StoreForm = () => {
         <InputField
           required
           name="openTime"
-          label="Open time"
-          placeholder="e.g. 09:00"
+          label={t('openTime.label')}
+          placeholder={t('openTime.placeholder')}
           onChange={onChange}
           error={state.error}
         />
         <InputField
           required
           name="closeTime"
-          label="Close time"
-          placeholder="e.g. 17:00"
+          label={t('closeTime.label')}
+          placeholder={t('closeTime.placeholder')}
           onChange={onChange}
           error={state.error}
         />
@@ -65,17 +68,17 @@ const StoreForm = () => {
       <Form.Group widths={2}>
         <InputField
           name="note"
-          label="Note"
-          placeholder="e.g. doesn't open at Fridays"
+          label={t('note.label')}
+          placeholder={t('note.placeholder')}
           onChange={onChange}
           error={state.error}
         />
       </Form.Group>
       <Button type="submit" onClick={() => onSubmit()}>
-        Submit
+        {t('submit')}
       </Button>
     </Form>
   )
-}
+});
 
 export { StoreForm }
