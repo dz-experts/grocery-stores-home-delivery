@@ -4,7 +4,7 @@ cli_name = "mendarkom"
 
 requirements = [
     "fastapi==0.52.0",
-    "SQLAlchemy==1.3.15",
+    "SQLAlchemy==1.3.16",
     "alembic==1.4.2",
     "psycopg2-binary==2.8.4",
     "typer==0.1.0",
