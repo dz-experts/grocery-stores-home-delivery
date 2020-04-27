@@ -7,7 +7,7 @@ requirements = [
     "SQLAlchemy==1.3.16",
     "alembic==1.4.2",
     "psycopg2-binary==2.8.5",
-    "typer==0.1.0",
+    "typer==0.2.1",
     "orjson==2.6.6",
     "uvicorn==0.11.3",
 ]
