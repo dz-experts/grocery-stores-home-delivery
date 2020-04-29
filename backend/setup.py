@@ -9,7 +9,7 @@ requirements = [
     "psycopg2-binary==2.8.5",
     "typer==0.1.0",
     "orjson==2.6.6",
-    "uvicorn==0.11.3",
+    "uvicorn==0.11.4",
 ]
 
 dev_dependencies = ["pytest", "python-dotenv"]
