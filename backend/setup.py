@@ -3,7 +3,7 @@ from setuptools import setup
 cli_name = "mendarkom"
 
 requirements = [
-    "fastapi==0.52.0",
+    "fastapi==0.55.1",
     "SQLAlchemy==1.3.16",
     "alembic==1.4.2",
     "psycopg2-binary==2.8.5",
