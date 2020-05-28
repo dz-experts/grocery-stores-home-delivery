@@ -8,7 +8,7 @@ requirements = [
     "alembic==1.4.2",
     "psycopg2-binary==2.8.5",
     "typer==0.1.0",
-    "orjson==2.6.6",
+    "orjson==3.0.2",
     "uvicorn==0.11.3",
 ]
 
